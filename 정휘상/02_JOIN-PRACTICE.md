@@ -80,7 +80,7 @@ JOIN department d
 JOIN location l
     ON d.LOCATION_ID = l.LOCAL_CODE
 WHERE
-    e.BONUS IS NOT NULL OR 
+    e.BONUS IS NOT NULL AND 
     e.BONUS > 0
 ```
 
