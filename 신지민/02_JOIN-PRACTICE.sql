@@ -32,8 +32,8 @@ where d.dept_title like '해외영업_부';
 -- 5. 보너스포인트를 받는 직원의 이름, 보너스, 부서명, 지역명을 조회하세요.
 select e.emp_name, e.bonus, d.dept_title, l.local_name
 from employee e
-join department d on e.dept_code = d.dept_id
-join location l on d.location_id = l.local_code
+left join department d on e.dept_code = d.dept_id
+left join location l on d.location_id = l.local_code
 where e.bonus is not null;
 
 
