@@ -71,6 +71,7 @@ ORDER BY 구분, 사번;
 -- GG
 SELECT ROUND(AVG(SALARY), -5) AS AVG_SALARY, JOB_CODE
 FROM employee
+WHERE ENT_YN = 'n'
 GROUP BY JOB_CODE;
 
 SELECT EMP_ID, EMP_NAME, E.JOB_CODE, AVG_SALARY AS SALARY
@@ -83,7 +84,7 @@ SELECT EMP_NAME, E.JOB_CODE, E.DEPT_CODE, HIRE_DATE
 FROM employee E
          JOIN (SELECT EMP_ID, DEPT_CODE, JOB_CODE
                FROM employee
-               WHERE ENT_DATE IS NOT NULL
+               WHERE ENT_YN = 'y'
                  AND EMP_NO LIKE '______-2%') YEE
               ON E.DEPT_CODE = YEE.DEPT_CODE AND
                  E.JOB_CODE = YEE.JOB_CODE AND
